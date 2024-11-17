@@ -1,5 +1,8 @@
 # BASE EFI AMD - Ryzen and Threadripper (1XXX, 2XXX, 3XXX, 4XXX, 5XXX)
 
+This document is available in other languages:
+- [Português (BR)](README.pt-BR.md)
+
 Note|Description
 :----|:----
 Initial macOS Support|macOS 10.13, High Sierra.
@@ -124,20 +127,14 @@ MacPro7,1|AMD RX Polaris and newer.<br>Note that MacPro7,1 is exclusive to macOS
 MacPro6,1|AMD R5/R7/R9 and older.
 iMac14,2|Nvidia Kepler and newer.<br>Note: iMac14,2 is only supported to macOS 10.8-10.15, for macOS 11, Big Sur and newer please use MacPro7,1.
 
-# 🇺🇸 Catalina and older versions of macOS (🇧🇷 Catalina e versões mais antigas do macOS)
-🇧🇷 [PT-BR]
-- Por favor, configure `MinDate` e `MinVersion` em UEFI > APFS para `-1`;
-- Por favor, configure `SecureBootModel` em Misc > Security para `j137`;
+# Catalina and older versions of macOS
 
-\* *Sem as configurações acima, o macOS não conseguirá inicializar.*
-
-🇺🇸 [PT-BR]
 - Please configure `MinDate` and `MinVersion` in UEFI > APFS to `-1`;
 - Please configure `SecureBootModel` in Misc > Security to `j137`;
 
 \* *Without above settings, macOS will not be able to boot.*
 
-# Special notes
+# Special notes (Notas especiais)
 
 - USB port mapping is **REQUIRED**.
 - **`XhciPortLimit`** - Needed **`DISABLE`** if you use Big Sur 11.3+. 

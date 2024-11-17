@@ -170,34 +170,34 @@ Então, por exemplo, um valor de substituição do 6 Core 5600X resultaria neste
 
 Disabling the `mtrr_update_action - fix PAT` patch has shown an improvement in GPU performance on some systems that have tested. If you wish to test this it is recommended to do so on a USB with OpenCore to ensure it works first. There may be issues with different motherboard/GPU combos that we aren't aware of. Proceed at your own risk.
 
-### General Purpose `boot-args`
+### Uso Geral (General Purpose) `boot-args`
 
 Parameter|Description
 :----|:----
-npci=0x2000|This disables some PCI debugging related to `kIOPCIConfiguratorPFM64`, alternative is `npci=0x3000` which disables debugging related to `gIOPCITunnelledKey` in addition.<br>Required for when getting stuck on `PCI Start Configuration` as there are IRQ conflicts relating to your PCI lanes. **Not needed if Above4GDecoding is enabled.**
-npci=0x3000|Alternative for `npci=0x2000`.
+npci=0x2000|Isso desabilita alguma depuração PCI relacionada a `kIOPCIConfiguratorPFM64`, a alternativa é `npci=0x3000` que desabilita a depuração relacionada a `gIOPCITunnelledKey` adicionalmente.<br>Necessário para quando ficar preso em `PCI Start Configuration`, pois há conflitos de IRQ relacionados às suas pistas PCI. **Não é necessário se Above4GDecoding estiver habilitado.**
+npci=0x3000|Alternativa para `npci=0x2000`.
 
-### GPU-Specific `boot-args`
+### Específico para GPU (GPU-Specific) `boot-args`
 
 Parameter|Description
 :----|:----
-agdpmod=pikera|Used for disabling board ID checks on Navi GPUs(RX 5000 series), without this you'll get a black screen.<br>**Don't use if you don't have Navi** (ie. Polaris and Vega cards shouldn't use this).
-nvda_drv_vrl=1|Used for enabling Nvidia's Web Drivers on Maxwell and Pascal cards in Sierra and High Sierra.
+agdpmod=pikera|Usado para desabilitar verificações de ID de placa em GPUs Navi (série RX 5000), sem isso você terá uma tela preta.<br>**Não use se você não tiver Navi** (ou seja, placas Polaris e Vega não devem usar isso).
+nvda_drv_vrl=1|Usado para habilitar drivers Nvidia Web em placas Maxwell e Pascal no Sierra e High Sierra.
 
-# BIOS Settings
+# Configurações da BIOS
 
-### Disable
+### Desativar
 - Fast Boot
 - Secure Boot
 - Serial/COM Port
 - Parallel Port
 - Compatibility Support Module (CSM)(Must be off, GPU errors like `gIO` are common when this option in enabled)
 
-***Special note for 3990X users***: *macOS currently does not support more than 64 threads in the kernel, and so will kernel panic if it sees more. The 3990X CPU has 128 threads total and so requires half of that disabled. We recommend disabling hyper threading in the BIOS for these situations.*
+***Nota especial para usuários do 3990X***: *o macOS atualmente não suporta mais de 64 threads no kernel, e então o kernel entrará em pânico se vir mais. A CPU 3990X tem 128 threads no total e então requer metade disso desabilitado. Recomendamos desabilitar o hyper threading no BIOS para essas situações.*
 
 ### Enable
 - Above 4G decoding
-	- This must be on, if you can't find the option then add `npci=0x2000` to `boot-args`. 
+	- Isso deve estar ativado, se você não encontrar a opção, adicione`npci=0x2000` a `boot-args`. 
 	- Do not have both this option and `npci` in `boot-args` enabled at the same time.
 	- If you are on a Gigabyte/Aorus or an AsRock motherboard, enabling this option may break certain drivers(ie. Ethernet) and/or boot failures on other OSes, if it does happen then disable this option and opt for `npci` instead.
 	- 2020+ BIOS Notes: When enabling Above4G, Resizable BAR Support may become an available on some X570 and newer motherboards. Please ensure this is **`DISABLED`** instead of set to Auto.

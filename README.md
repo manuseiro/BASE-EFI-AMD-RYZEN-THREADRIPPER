@@ -1,10 +1,13 @@
 # BASE EFI AMD - Ryzen and Threadripper (1XXX, 2XXX, 3XXX, 4XXX, 5XXX)
 
+This document is available in other languages:
+- [Português (BR)](README.pt-BR.md)
+
 Note|Description
 :----|:----
 Initial macOS Support|macOS 10.13, High Sierra.
 
-- Opencore version: 0.7.3
+- Opencore version: 1.0.2
 - Release date: 17/11/2024
 
 # Basic Steps
@@ -131,7 +134,7 @@ iMac14,2|Nvidia Kepler and newer.<br>Note: iMac14,2 is only supported to macOS 1
 
 \* *Without above settings, macOS will not be able to boot.*
 
-# Special notes
+# Special notes (Notas especiais)
 
 - USB port mapping is **REQUIRED**.
 - **`XhciPortLimit`** - Needed **`DISABLE`** if you use Big Sur 11.3+. 

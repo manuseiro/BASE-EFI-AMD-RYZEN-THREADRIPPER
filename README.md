@@ -124,8 +124,14 @@ MacPro7,1|AMD RX Polaris and newer.<br>Note that MacPro7,1 is exclusive to macOS
 MacPro6,1|AMD R5/R7/R9 and older.
 iMac14,2|Nvidia Kepler and newer.<br>Note: iMac14,2 is only supported to macOS 10.8-10.15, for macOS 11, Big Sur and newer please use MacPro7,1.
 
-# Catalina and older versions of macOS
+# 🇺🇸 Catalina and older versions of macOS (🇧🇷 Catalina e versões mais antigas do macOS)
+🇧🇷 [PT-BR]
+- Por favor, configure `MinDate` e `MinVersion` em UEFI > APFS para `-1`;
+- Por favor, configure `SecureBootModel` em Misc > Security para `j137`;
 
+\* *Sem as configurações acima, o macOS não conseguirá inicializar.*
+
+🇺🇸 [PT-BR]
 - Please configure `MinDate` and `MinVersion` in UEFI > APFS to `-1`;
 - Please configure `SecureBootModel` in Misc > Security to `j137`;
 

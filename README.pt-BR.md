@@ -100,9 +100,9 @@ path/to/iasl.exe path/to/DSDT.dsl
 ```
 *File APCPI_FILE_PATCHED.aml will generated.*
 
-# Attention
+# Atenção
 
-Update **config.plist** in PlatformInfo > Generic with YOUR informations.
+Atualize **config.plist** em PlatformInfo > Generic com SUAS informações.
 <br><br>
 *1. MLB (Board Serial)
 <br>
@@ -112,9 +112,9 @@ Update **config.plist** in PlatformInfo > Generic with YOUR informations.
 <br>
 4. SystemUUID (SmUUID)*
 
-Please use [*genSMBIOS*](https://github.com/corpnewt/GenSMBIOS/archive/refs/heads/master.zip) for generate values for above itens.
+Use [*genSMBIOS*](https://github.com/corpnewt/GenSMBIOS/archive/refs/heads/master.zip) para gerar valores para os itens acima.
 <br>
-Please use [*ProperTree*](https://github.com/corpnewt/ProperTree/archive/refs/heads/master.zip) for configure/edit your config.plist.
+Use [*ProperTree*](https://github.com/corpnewt/ProperTree/archive/refs/heads/master.zip) para configurar/editar seu config.plist.
 
 # SMBIOS compatível
 
@@ -134,25 +134,25 @@ iMac14,2|Nvidia Kepler e mais recentes.<br>Observação: o iMac14,2 é suportado
 
 # Special notes
 
-- USB port mapping is **REQUIRED**.
-- **`XhciPortLimit`** - Needed **`DISABLE`** if you use Big Sur 11.3+. 
-	- Please Mapping USB in macOS Catalina before install Big Sur or Newer for best results.
-	- You can use USBMap.command Utility - [USBMap](https://github.com/corpnewt/USBMap).
-- **`SetupVirtualMap`** in config.plist:
-	- B550, A520 and TRx40 boards should **`DISABLE`** this;
-	- Newer BIOS versions of X570 also require this **`DISABLE`**;
-	- X470 and B450 with late 2020 BIOS updates also require this **`DISABLE`**.
-- **`DevirtualiseMmio`** - TRx40 users please **`ENABLE`** this flag.
+- O mapeamento da porta USB é **OBRIGATÓRIO**.
+- **`XhciPortLimit`** - Necessário **`DESATIVAR`** se você usar o Big Sur 11.3+. 
+	- Mapeie o USB no macOS Catalina antes de instalar o Big Sur ou mais recente para obter melhores resultados.
+	- Você pode usar o utilitário USBMap.command - [USBMap](https://github.com/corpnewt/USBMap).
+- **`SetupVirtualMap`** em config.plist:
+	- As placas B550, A520 e TRx40 devem estar **`DESATIVADA`**;
+	- As versões de BIOS mais recentes da X570 também exigem que seja **`DESATIVADA`**;
+	- X470 e B450 com atualizações de BIOS do final de 2020 também exigem este seja **`DESATIVADA`**.
+- **`DevirtualiseMmio`** - Usuários da TRx40, por favor, **ATIVEM`** este sinalizador.
 
 ## Special notes - Opencore 0.7.1+
 
-Find the three `algrey - Force cpuid_cores_per_package` patches and alter the `Replace` value only - `config.plist`.
+Encontre os três patches `algrey - Force cpuid_cores_per_package` e altere apenas o valor `Replace` - `config.plist`.
 
-Changing `B8000000 0000`/`BA000000 0000`/`BA000000 0090`* to `B8 <CoreCount> 0000 0000`/`BA <CoreCount> 0000 0000`/`BA <CoreCount> 0000 0090`* substituting `<CoreCount>` with the hexadeciamal value matching your physical core count.
+Alterando `B8000000 0000`/`BA000000 0000`/`BA000000 0090`* to `B8 <CoreCount> 0000 0000`/`BA <CoreCount> 0000 0000`/`BA <CoreCount> 0000 0090`* substituindo `<CoreCount>` pelo valor hexadecimal correspondente à sua contagem de núcleos físicos.
 
-**Note:** *The three different values reflect the patch for different versions of macOS. Be sure to change all three if you boot macOS 10.13 to macOS 12*
+**Observação:** *Os três valores diferentes refletem o patch para diferentes versões do macOS. Certifique-se de alterar todos os três se você inicializar o macOS 10.13 para o macOS 12*
 
-See the table below for the values matching your CPU Core Count.
+Veja a tabela abaixo para os valores correspondentes à contagem de núcleos da sua CPU.
 
 | CoreCount | Hexadecimal|
 |--------|---------|
@@ -162,9 +162,9 @@ See the table below for the values matching your CPU Core Count.
 |   16 Core | `10` |
 |   32 Core | `20` |
 
-So for example a 6 Core 5600X Replace value would result in these replace values, `B8 06 0000 0000`/`BA 06 0000 0000`/`BA 06 0000 0090`
+Então, por exemplo, um valor de substituição do 6 Core 5600X resultaria nestes valores de substituição, `B8 06 0000 0000`/`BA 06 0000 0000`/`BA 06 0000 0090`
 
-**Note:** *MacOS Monterey installation requires `Misc -> Security -> SecureBootModel` to be disabled in the config.<br />Also TPM needs to be disabled in the BIOS. Both can be enabled after install.*
+**Observação:** *A instalação do MacOS Monterey requer que `Misc -> Security -> SecureBootModel` esteja desabilitado na configuração.<br />Também o TPM precisa estar desabilitado no BIOS. Ambos podem ser habilitados após a instalação.*
 
 ## TRX40 Systems
 

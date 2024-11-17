@@ -34,19 +34,20 @@ Kext|Descrição
 [VirtualSMC.kext](https://github.com/acidanthera/VirtualSMC/releases)|Emula o chip SMC encontrado em Macs reais, sem isso o macOS não inicializa.<br>Alternativa: FakeSMC, que pode ter suporte melhor ou pior, geralmente usado em hardwares antigos.
 [WhateverGreen.kext](https://github.com/acidanthera/WhateverGreen/releases)|Usado para correção gráfica, correções DRM, verificações de ID de placa, correções de framebuffer, etc; todas as GPUs se beneficiam deste kext.
 
-# Other Kexts (not included)
+# Outros Kexts (não inclusos)
 
-Kexts for support Audio, Wifi, Ethernets and other devices.
+Kexts para suporte de Áudio, Wifi, Ethernets e outros dispositivos.
 
 ### Audio
 
-Kext|Description
+Kext|Descrição
 :----|:----
-[AppleALC.kext](https://github.com/acidanthera/AppleALC/releases)|Used for AppleHDA patching, allowing support for the majority of on-board sound controllers.<br>AMD 15h/16h may have issues with this and Ryzen/Threadripper systems rarely have mic support.
-[VoodooHDA.kext](https://sourceforge.net/projects/voodoohda/)|Audio for FX systems and front panel Mic+Audio support for Ryzen system, do not mix with AppleALC.<br>Audio quality is noticeably worse than AppleALC on Zen CPUs.
+255 / 5.000
+[AppleALC.kext](https://github.com/acidanthera/AppleALC/releases)|Usado para aplicação de patches no AppleHDA, permitindo suporte para a maioria dos controladores de som integrados.<br>O AMD 15h/16h pode ter problemas com isso e os sistemas Ryzen/Threadripper raramente têm suporte para microfone.
+[VoodooHDA.kext](https://sourceforge.net/projects/voodoohda/)|Áudio para sistemas FX e suporte a microfone+áudio no painel frontal para sistemas Ryzen, não misture com AppleALC.<br>A qualidade do áudio é visivelmente pior que AppleALC em CPUs Zen.
 
 ### Ethernet
-Kext|Description
+Kext|Descrição
 :----|:----
 [IntelMausi.kext](https://github.com/acidanthera/IntelMausi/releases)|Intel's 82578, 82579, I217, I218 and I219 NICs are officially supported.
 [AtherosE2200Ethernet.kext](https://github.com/Mieze/AtherosE2200Ethernet/releases)|Required for Atheros and Killer NICs.<br>**Note**: Atheros Killer E2500 models are actually Realtek based, for these systems please use RealtekRTL8111 instead.
@@ -55,7 +56,7 @@ Kext|Description
 [SmallTreeIntel82576.kext](https://github.com/khronokernel/SmallTree-I211-AT-patch/releases)| Required for I211 NICs, based off of the SmallTree kext but patched to support I211.<br>Required for most AMD boards running Intel NICs.
 
 ### WiFi and Bluetooth
-Kext|Description
+Kext|Descrição
 :----|:----
 [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)|Adds support for a large variety of Intel wireless cards and works natively in recovery thanks to IO80211Family integration.
 [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases)|Adds Bluetooth support to macOS when paired with an Intel wireless card.
@@ -63,22 +64,22 @@ Kext|Description
 [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM/releases)|Used for uploading firmware on Broadcom Bluetooth chipset, required for all non-Apple/non-Fenvi Airport cards.
 
 ### Others
-Kext|Description
+Kext|Descrição
 :----|:----
 [NVMeFix](https://github.com/acidanthera/NVMeFix/releases)|Used for fixing power management and initialization on non-Apple NVMe.
 [SATA-Unsupported](https://github.com/khronokernel/Legacy-Kexts/blob/master/Injectors/Zip/SATA-unsupported.kext.zip)|Adds support for a large variety of SATA controllers, mainly relevant for laptops which have issues seeing the SATA drive in macOS.<br>We recommend testing without this first.
 [AppleMCEReporterDisabler](https://github.com/acidanthera/bugtracker/files/3703498/AppleMCEReporterDisabler.kext.zip)|Useful starting with Catalina to disable the AppleMCEReporter kext which will cause kernel panics on AMD CPUs.<br>Recommended for dual-socket systems (ie. Intel Xeons).
 
-# ACPI Tables - AMD
+# Tabelas ACPI - AMD
 
-These files are **MUST** be included in your EFI's ACPI directory. We recommend that you use the **MANUAL** method, but for a first test you can use the prebuild versions.
+Esses arquivos **DEVEM** ser incluídos no diretório ACPI do seu EFI. Recomendamos que você use o método **MANUAL**, mas para um primeiro teste você pode usar as versões prebuild.
 
-Table|Description
+Tabela|Descrição
 :----|:----
 SSDT-EC-USBX|[Manual](https://dortania.github.io/Getting-Started-With-ACPI/Universal/ec-methods/manual.html) \| [Prebuilt](https://github.com/dortania/Getting-Started-With-ACPI/raw/master/extra-files/compiled/SSDT-EC-USBX-DESKTOP.aml) \| [Details](https://dortania.github.io/Getting-Started-With-ACPI/Universal/ec-fix.html)
-SSDT-CPUR|[Prebuilt](https://github.com/dortania/Getting-Started-With-ACPI/raw/master/extra-files/compiled/SSDT-CPUR.aml) <br> *Only for B550 and A520*
+SSDT-CPUR|[Prebuilt](https://github.com/dortania/Getting-Started-With-ACPI/raw/master/extra-files/compiled/SSDT-CPUR.aml) <br> *Somente para B550 e A520*
 
-### Dumping your DSDT in Windows Environment
+### Despejando seu DSDT no ambiente Windows
 [Download iASL Compiler ACPI Tools](https://acpica.org/downloads/binary-tools)
 <br><br>
 Open the CMD in the directory where the *ACPI Tools* was extracted. (*Command Prompt*) in **Administrator Mode**:
@@ -115,14 +116,14 @@ Please use [*genSMBIOS*](https://github.com/corpnewt/GenSMBIOS/archive/refs/head
 <br>
 Please use [*ProperTree*](https://github.com/corpnewt/ProperTree/archive/refs/heads/master.zip) for configure/edit your config.plist.
 
-# Compatible SMBIOS
+# SMBIOS compatível
 
-SMBIOS|Description
+SMBIOS|Descrição
 :----|:----
-iMacPro1,1|AMD RX Polaris and newer.
-MacPro7,1|AMD RX Polaris and newer.<br>Note that MacPro7,1 is exclusive to macOS 10.15, Catalina and newer.
+iMacPro1,1|AMD RX Polaris e mais recentes.
+MacPro7,1|AMD RX Polaris e mais recentes.<br>Observe que o MacPro7,1 é exclusivo para macOS 10.15, Catalina e mais recentes.
 MacPro6,1|AMD R5/R7/R9 and older.
-iMac14,2|Nvidia Kepler and newer.<br>Note: iMac14,2 is only supported to macOS 10.8-10.15, for macOS 11, Big Sur and newer please use MacPro7,1.
+iMac14,2|Nvidia Kepler e mais recentes.<br>Observação: o iMac14,2 é suportado apenas para macOS 10.8-10.15, para macOS 11, Big Sur e mais recentes, use o MacPro7,1.
 
 # Catalina e versões mais antigas do macOS
 
